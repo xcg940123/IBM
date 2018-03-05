@@ -1,0 +1,808 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+
+<title>医疗数据</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta Http-Equiv="pragma" content="no-cache" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/hetong.css" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-button.css" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datepicker.js"></script>
+</head>
+<body>
+	<div id="background">
+		<h2 style="margin-left: 800px">医疗数据（电子病历）</h2>
+		<table border="6" width="60%" height="1400px"
+			bordercolorlight="#008000" bordercolordark="#808000" align="center">
+			<tbody float="right">
+				<tr>
+					<td>
+						<form class="form-horizontal" action="/user/saveMedicalCare" method="post">
+							<div id="legend" class="">
+								<legend class="">表单:</legend>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">健康卡号：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">第</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" /> <span style="font-size: 15px">次住院</span>
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">开销：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" name="payment" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="row1">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">姓名：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" name="patientName" />
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<div class="control-group">
+											<label class="control-label">性别：</label>&emsp;&emsp;&emsp;
+											<div class="controls" style="display: inline-block;">
+												<!-- Multiple Radios -->
+												<label class="radio" style="display: inline-block;">
+													<input type="radio" value="Option one" name="group"
+													checked="checked" /> 男
+												</label>&emsp;&emsp;&emsp; <label class="radio"
+													style="display: inline-block;"> <input type="radio"
+													value="Option two" name="group" /> 女
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">出生日期：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="yyyy-mm-dd"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="row1">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<!-- Select Basic -->
+										<label class="control-label">医疗种类判断：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge" name="kind">
+												<option value="一般意外">一般意外</option>
+												<option value="津贴及车费">津贴及车费</option>
+												<option value="交通意外">交通意外</option>
+											</select>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="control-group" style="display: inline-block">
+									<!-- Text input-->
+									<label class="control-label" for="input01">医疗范围判断：</label>
+
+									<div class="controls" style="display: inline-block">
+										<select class="input-xlarge" name="range">
+											<option value="意外身故、伤残">意外身故、伤残</option>
+											<option value="意外医疗">意外医疗</option>
+											<option value="住院误工津贴">住院误工津贴</option>
+											<option value="救护车费用报销">救护车费用报销</option>
+											<option value="飞机意外身故、伤残">飞机意外身故、伤残</option>
+											<option value="火车意外身故、伤残">火车意外身故、伤残</option>
+											<option value="船舶意外身故、伤残">船舶意外身故、伤残</option>
+											<option value="汽车意外身故、伤残">汽车意外身故、伤残</option>
+										</select>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="control-group" style="display: inline-block">
+									<!-- Text input-->
+									<label class="control-label" for="input01">新生儿入院体重：</label>
+									<div class="controls" style="display: inline-block">
+										<input type="text" placeholder="placeholder"
+											class="input-xlarge" /> <span style="font-size: 15px">克</span>
+										<p class="help-block"></p>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<!-- Select Basic -->
+										<label class="control-label">出生地&emsp;省：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>山西</option>
+												<option>陕西</option>
+												<option>河南</option>
+												<option>山东</option>
+												<option>吉林</option>
+												<option>安徽</option>
+												<option>湖南</option>
+												<option>江苏</option>
+											</select>
+										</div>
+
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">市</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>山西</option>
+												<option>陕西</option>
+												<option>河南</option>
+												<option>山东</option>
+												<option>吉林</option>
+												<option>安徽</option>
+												<option>湖南</option>
+												<option>江苏</option>
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">县：</label> <select
+											class="input-xlarge">
+											<option>山西</option>
+											<option>陕西</option>
+											<option>河南</option>
+											<option>山东</option>
+											<option>吉林</option>
+											<option>安徽</option>
+											<option>湖南</option>
+											<option>江苏</option>
+
+										</select>
+									</div>
+
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<!-- Select Basic -->
+										<label class="control-label">籍贯&emsp;&emsp;省：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>山西</option>
+												<option>陕西</option>
+												<option>河南</option>
+												<option>山东</option>
+												<option>吉林</option>
+												<option>安徽</option>
+												<option>湖南</option>
+												<option>江苏</option>
+
+											</select>
+										</div>
+
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">市</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>山西</option>
+												<option>陕西</option>
+												<option>河南</option>
+												<option>山东</option>
+												<option>吉林</option>
+												<option>安徽</option>
+												<option>湖南</option>
+												<option>江苏</option>
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">县：</label> <select
+											class="input-xlarge">
+											<option>山西</option>
+											<option>陕西</option>
+											<option>河南</option>
+											<option>山东</option>
+											<option>吉林</option>
+											<option>安徽</option>
+											<option>湖南</option>
+											<option>江苏</option>
+
+										</select>
+									</div>
+
+								</div>
+							</div>
+							
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">民族：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">身份证号：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">职业：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>工人</option>
+												<option>学生</option>
+												<option>司机</option>
+												<option>个体</option>
+												<option>公务员</option>
+												<option>白领</option>
+
+
+											</select>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">现住址&emsp;省：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>山西</option>
+												<option>陕西</option>
+												<option>河南</option>
+												<option>山东</option>
+												<option>吉林</option>
+												<option>安徽</option>
+												<option>湖南</option>
+												<option>江苏</option>
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">市：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>山西</option>
+												<option>陕西</option>
+												<option>河南</option>
+												<option>山东</option>
+												<option>吉林</option>
+												<option>安徽</option>
+												<option>湖南</option>
+												<option>江苏</option>
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">县：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>山西</option>
+												<option>陕西</option>
+												<option>河南</option>
+												<option>山东</option>
+												<option>吉林</option>
+												<option>安徽</option>
+												<option>湖南</option>
+												<option>江苏</option>
+
+											</select>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">工作单位及地址：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">单位电话：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">邮编：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">联系人姓名：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">关系：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>父子</option>
+												<option>父女</option>
+												<option>母子</option>
+												<option>母女</option>
+												<option>亲戚</option>
+												<option>朋友</option>
+												<option>其他</option>
+
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">电话：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">证件类型：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>内科</option>
+												<option>外科</option>
+												<option>骨科</option>
+												<option>眼科</option>
+												<option>脑科</option>
+
+
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<div class='input-group date' id='datetimepicker4'
+											style="display: inline-block; margin-top: 20px; margin-bottom: 15px">
+											诊断时间 <input type='text' class="form-control" name="treatTime"
+												style="width: 150px; display: inline-block; border-radius: 0" />
+											<span class="input-group-addon"
+												style="height: 34px; border-radius: 0"> <!-- <span class="glyphicon glyphicon-calendar"></span>   -->
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">病房：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">转院科别：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>内科</option>
+												<option>外科</option>
+												<option>骨科</option>
+												<option>眼科</option>
+												<option>脑科</option>
+
+
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">门诊诊断：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="" class="input-xlarge" />
+
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">实际住院：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" /> <span
+												style="display: inline-block">天</span>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">出院科别：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>内科</option>
+												<option>外科</option>
+												<option>骨科</option>
+												<option>眼科</option>
+												<option>脑科</option>
+
+
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">出院时间：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="yyyy-mm-dd"
+												class="input-xlarge" />
+
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">病房：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">血型：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>A</option>
+												<option>B</option>
+												<option>AB</option>
+												<option>O</option>
+
+
+
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">RH：</label>
+										<div class="controls" style="display: inline-block">
+											<select class="input-xlarge">
+												<option>阴</option>
+												<option>阳</option>
+												<option>不详</option>
+												<option>未测</option>
+
+
+
+
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">疾病编码：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">科主任：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">主治医师：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">住院医师：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">实习医师：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">质控医师：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">责任护士：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="row1">
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<label class="control-label" for="input01">编码员：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="placeholder"
+												class="input-xlarge" />
+											<p class="help-block"></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+										<!-- Text input-->
+										<div class="control-group">
+											<label class="control-label">死亡患者尸检：</label>&emsp;&emsp;&emsp;
+											<div class="controls" style="display: inline-block;">
+												<!-- Multiple Radios -->
+												<label class="radio" style="display: inline-block;">
+													<input type="radio" value="Option one" name="group"
+													checked="checked" /> 男
+												</label>&emsp;&emsp;&emsp; <label class="radio"
+													style="display: inline-block;"> <input type="radio"
+													value="Option two" name="group" /> 女
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="control-group">
+
+										<!-- Search input-->
+										<label class="control-label">质控日期：</label>
+										<div class="controls" style="display: inline-block">
+											<input type="text" placeholder="yyyy-mm-dd"
+												class="input-xlarge search-query" />
+											<p class="help-block"></p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+											<button type="submit" id="login-button">提交</button>
+
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		$(function() {
+			$('#datetimepicker4').datepicker({
+				format : 'yyyy/mm/dd',
+				locale : moment.locale('zh-cn'),
+				autoclose : true,
+				todayBtn : true,
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+dt, h1,h2,h3,h4{
+	text-align: center;
+	color: #f63;
+	font-size: 25px;
+}
+li {
+	text-align: left;
+}
+
+#klm{
+	text-align: center;
+	font-size: 18px;
+
+}
+#baojia{
+	text-align: right;
+	color: #f63;
+	font-size: 25px;
+	font-weight: 800 ;
+}
+#zuo{background: #f2f6f9;
+	width: 200px}

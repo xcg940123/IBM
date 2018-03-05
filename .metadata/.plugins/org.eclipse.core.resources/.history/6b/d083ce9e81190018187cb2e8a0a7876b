@@ -1,0 +1,38 @@
+package cn.mics.brank.main.test;
+
+import java.net.MalformedURLException;
+
+import org.hyperledger.main.test.Contract;
+import org.hyperledger.main.test.JacksonUtil;
+
+import cn.mics.brank.tes.End2endIT;
+
+public class mainTest {
+    public boolean getInformation(String info) {
+//    	message.setName("a");
+//    	message.setNamevalue("100");
+//    	message.setMoney("b");
+//    	message.setMoneyvalue("300");
+//    	String infoMe="";
+//    	infoMe=JacksonUtil.toJSon(message);
+    	boolean flag=false;
+    	Contract getInfo=JacksonUtil.readValue(info, Contract.class);
+    	System.out.println("我在fabric"+"============"+getInfo.getMoney()+"=============");
+		//return NewTest;
+    	End2endIT end2end=new End2endIT(getInfo.getName(),getInfo.getNamevalue(),getInfo.getMoney(),getInfo.getMoneyvalue());
+    	try {
+			end2end.checkConfig();
+		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException
+				| MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	end2end.setup();
+    	end2end.clearConfig();
+    	if(getInfo!=null) {
+    		flag=false;
+    	}
+    	return flag;
+	}
+
+}
